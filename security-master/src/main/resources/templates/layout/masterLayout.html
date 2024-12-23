@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:fragment="layout(main)" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+    th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script src="../../static/bootstrap/js/bootstrap.min.js"
+    th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary text-white">
+        <section class="container">
+            <a href="" class="navbar-brand">Spring Security</a>
+            <button class="navbar-toggler" data-bs-target="#myNav" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav id="myNav" class="navbar-collapse collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a th:href="@{/}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/list-employee}" class="nav-link">Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/list-department}" class="nav-link">Department</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/list-customer}" class="nav-link">Customers</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a th:href="@{/login}" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a th:href="@{/account}" class="nav-link">AccountInfo</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a href="javascript:document.getElementById('logoutForm').submit();" class="nav-link">Logout</a>
+                        <form id="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                            <input type="text" value="Logout" hidden>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </nav>
+
+    <main th:replace="${main}"></main>
+</body>
+</html>

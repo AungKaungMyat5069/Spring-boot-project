@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--       showcase-->
+    <section th:fragment="header" id="showcase" class="d-flex align-items-center justify-content-center">
+        <div id="overlay"></div>
+        <article id="header" class="container  text-white text-center" >
+            <h3 class="display-5">Modern Manga Store</h3>
+            <h1 class="display-1">Anime Manga</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Asperiores autem corporis dicta dolor doloremque eligendi harum hic magni!
+            </p>
+            <a th:href="@{/book-list}" class="btn btn-primary px-4 rounded">Try Now</a>
+        </article>
+    </section>
+    <section th:fragment="cartItem" class=" container w-100 text-end px-4 mt-3">
+        <a th:href="@{/cart-View}">
+            <i class="fa-solid fa-cart-shopping display-6 me-2"></i> <span th:text="${cartSize}"></span>
+        </a>
+    </section>
+
+</body>
+</html>

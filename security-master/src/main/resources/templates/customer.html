@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <main role="main" class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <a th:href="@{/customer-form}" class="btn btn-outline-info my-3">Add Customer</a>
+                <div class="card">
+                    <h4 class="card-header">Customer</h4>
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Code</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="cus : ${customers}">
+                                    <td th:text="${cus.id}"></td>
+                                    <td th:text="${cus.code}"></td>
+                                    <td th:text="${cus.firstName}"></td>
+                                    <td th:text="${cus.lastName}"></td>
+                                    <td th:text="${cus.address}"></td>
+                                    <td>
+                                        <a th:href="@{/delete-customer}"
+                                        class="btn btn-outline-danger">
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

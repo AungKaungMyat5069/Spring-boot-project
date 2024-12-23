@@ -1,0 +1,50 @@
+first create java project and delete the src folder
+
+add the java project
+add dep
+1. the spring boot autoconfiguration
+2. the database hsql provided
+3. the spring jdbc provided
+in child pom
+
+// <scope>provided</scope> meant that i want to write the dependence but not running process
+.*. provided is that does not error in compile time
+// in resources folder add file
+    META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports
+Note : logo must be with left and red star
+
+**8** my-schema.sql and my-data.sql can not be read unless import properties
+
+ //\\ Condition ON
+ @ConditionalOnClass({org.hsqldb.Database.class})
+
+ // add the spring boot project
+
+ add dep
+ 1. the spring boot jdbc
+ 2. hsql driver
+
+ 3. write EmployeeDao
+ 4. go to main and implements the CommandLineRunner
+ //but it does not work cuz of **8**
+
+ //solution
+ go to maven the click db project(autoConfiguration) , click package
+if finished, it will be in target folder
+so can be called from spring boot dep
+
+go to spring boot project pom.xml and add dep
+1. db(autoConfiguration) project
+
+// note : don't use the data with double quotes cuz error can get
+
+// first work(main is spring boot project)my-autoconfig-demo
+run the main file, if it sees the db(jdbc Template), go to dl-autoconfig-demo
+in dl-autoconfig-demo go to the import file
+
+// file auto-config-demo
+@ConditionalOnProperty(name="file.store", havingValue = "network")
+//that will be in application properties like -> file.store = network
+config file for Profile Value
+
+every starter is autoconfiguration

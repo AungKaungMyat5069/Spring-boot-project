@@ -1,0 +1,7 @@
+this is thread.
+thread is not safe
+thread safe solution is "synchronize" key word
+instance method can not be key word cuz every object have a key
+solution is getInstance;
+Executor(interface) extends => ExecutorService(interface) implements=> Executors(class)
+Concurrency(single thread) and Parallel(multi thread) and Thread

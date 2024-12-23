@@ -1,0 +1,61 @@
+//Aop -
+    aop have three services, @Pointcut(method) , joinPoint(path), @Before(advice)
+
+// @Pointcut in this and target
+
+// interface work - this and target (JdkDynamicProxy)
+// class Work - target only (CGLib)
+
+JdkDynamicProxy: Uses need to use  interfaces.
+"this": Proxy instance.
+"target": Original implementation of the interface.
+CGLib: Works with classes directly.
+"this": Proxy instance (subclass).
+"target": Original class instance.
+
+Why?
+ JdkDynamicProxy(class that implement interface) work this and target when @Pointcut is appointed to Interface
+
+ CGLib(class that does not implement interface) work this and target
+  not On Interface
+
+ within - takes methods/ method within package
+ Note all method will be work within that package
+
+ @before is worked before methods invoke
+ @after is worked after methods invoke
+
+ //@within - is used for class type @annotation, all method will work the class self
+
+
+ bean - find the class, but bean is always small letter in this
+ that class's all method will work, will work that have @Bean or @Component
+
+ args - find all same project(may be) and work
+ it is arguments, so I don't need to see future me
+ It is three arguments in pointcut all three argument are work
+ But in that arguments are same type
+
+ @args - find all type that is embedded @annotation and that class will be parameter
+ like enum is the best choice
+ it will work like if I use String variable, all string variable are working
+
+ @target - is same as @within
+
+ @After -- is when method/ methods is finished, it will work
+ @after advice is shown in Bean pointcut
+
+ @AfterThrow - is advice that will work when it throws
+ // in that AfterThrow parameter name throw is same as method parameter that type have Exception
+
+ @AfterReturn - is advice that will work return statements
+ // in that afterReturn value will return, except void(may be) and Exception
+
+//@Around is all in one - @Before, @After, @AfterThrow, @AfterReturn
+
+above try catch is called @Before, in catch is finally @after and  @afterThrow is catch and return type is @AfterReturn
+
+@EnableAspectJAutoProxy(proxyTargetClass = true) is change to CgLib Proxy
+
+Jpa proxy can not self invoke , meant that method will not work inner method
+JDk proxy only public method , but CGlib is public protected default

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html th:fragment="layout(main)" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BookStore</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+    th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script src="../../static/bootstrap/js/bootstrap.min.js"
+            th:src="@{/bootstrap/js/bootstrap.min.js}" defer></script>
+    <link rel="stylesheet" href="../../static/bootstrap/css/app.css"
+    th:href="@{/bootstrap/css/app.css}">
+    <script src="https://kit.fontawesome.com/2a3cd09595.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark text-white" >
+        <div class="container">
+            <a href="" class="navbar-brand">
+                BookStore
+            </a>
+            <button class="navbar-toggler" data-bs-target="#myNav" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="navbar-collapse collapse" id="myNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Setting</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <main th:replace="${main}"></main>
+<!--    Contact Info-->
+    <section id="newsletter" class="bg-dark">
+        <div class="container text-white text-center py-5">
+            <p class="lead">JOIN OUR NEWSLETTER FOR DEALS AND UPDATES AND OFFERS</p>
+            <div class="row justify-content-center">
+                <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+                    <form action="" class="form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Your Email" id="">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary">Join Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--    Footer-->
+    <footer id="footer" class="p-3 bg-secondary">
+        <ul class="nav text-center justify-content-center flex-column flex-sm-row">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white">FAQ</a>
+            </li>
+            <li class="nav-item">
+                <a href="#explore" class="nav-link text-white">EXPERIENCE</a>
+            </li>
+            <li class="nav-item">
+                <a href="#explore" class="nav-link text-white">EXPLORE</a>
+            </li>
+            <li class="nav-item">
+                <a href="#newsletter" class="nav-link text-white">CONTACT</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link text-white" data-toggle="modal" data-target="#bookingModal">BOOK NOW</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main role="main">
+<!--        header sector-->
+
+        <section th:replace="~{fragment/headSector :: header}"></section>
+<!--        cart Item icon-->
+        <section th:replace="~{fragment/headSector :: cartItem}"></section>
+<!--        show detail book Info-->
+        <section class="container mt-4 p-5 ">
+            <article class="row">
+                <aside class="col-md-6 p-5">
+                    <div class="card">
+                        <img class="img-fluid rounded shadow" width="360" height="480" th:src="${book.imgUrl}" th:alt="${book.title}">
+                    </div>
+                </aside>
+                <aside class="col-md-6 p-5">
+                    <div class="card">
+
+                        <h3 class="card-header" th:text="${'Title : ' + book.title}"></h3>
+                        <div class="card-body">
+
+                            <p class="card-text "> Price : $ <span class="text-info-emphasis" th:text="${book.price}"></span></p>
+                            <p class="card-text" th:text="${'Genre : ' + book.genre}"></p>
+                            <p class="card-text lead" th:text="${'written By ' + book.getAuthor().firstName + ' ' + book.getAuthor().lastName}"></p>
+                            <p>Lorem ipsum dolor sit amet,
+                                consectetur adipisicing elit. Ad aliquam at, cum eveniet impedit ipsam molestias
+                                mollitia nemo numquam quam quia quibusdam tempora totam? Beatae dicta iste nulla
+                                sint voluptatum.
+                            </p>
+                        </div>
+                    </div>
+                </aside>
+            </article>
+        </section>
+<!--        function for user-->
+        <section class="container my-4">
+            <article class="d-flex justify-content-between align-items-center">
+                <a th:href="@{/book-list}" class="btn btn-primary rounded">Continue Shopping</a>
+                <a th:href="@{'/add-cart?id=' + ${book.id}}" class="btn btn-secondary rounded">Add Cart</a>
+                <a th:href="@{/cart-View}" class="btn btn-warning rounded"> View Cart</a>
+
+            </article>
+        </section>
+    </main>
+</body>
+</html>

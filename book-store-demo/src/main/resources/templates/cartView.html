@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <main role="main">
+        <section th:replace="~{fragment/headSector :: header}"></section>
+        <section th:replace="~{fragment/headSector :: cartItem}"></section>
+<!--        cart View-->
+        <section class="card container" th:if="${!cartItems.isEmpty()}">
+            <h3 class="card-header">Cart View</h3>
+            <aside class="card-body">
+                <table class="table-striped-columns table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Author</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cartItem : ${cartItems}">
+                            <th th:text="${cartItem.title}"></th>
+                            <th th:text="${cartItem.price}"></th>
+                            <th th:text="${cartItem.authorName}"></th>
+                            <th>
+                                <a th:href="@{'/delete-cartItem?id=' + ${cartItem.id}}"
+                                class="btn btn-outline-danger">
+                                    Remove
+                                </a>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>
+                    Total Price : <span class="display-6 text-info" th:text="${totalPrice}"></span>
+                </h4>
+            </aside>
+
+        </section>
+        <section class="p-5 m-3 bg-dark text-white" th:if="${cartItems.isEmpty()}">
+            <h2 class="text-center">No Content</h2>
+        </section>
+    </main>
+</body>
+</html>

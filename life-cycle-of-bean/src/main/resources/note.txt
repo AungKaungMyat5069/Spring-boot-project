@@ -1,0 +1,20 @@
+lifecycle of Bean
+//created
+1. CustomerBeanFactoryPostProcessor.BeanFactoryPostProcessor::postProcessBeanFactory
+2. Constructor
+3. Dependencies injection (autowired)
+//Bean Initialization
+4. CustomerBeanPostProcessor.BeanPostProcessor::postProcessBeforeInitialization
+5. PostConstructor
+6. InitializingBean::afterPropertiesSet
+7. customerInit-@Bean(initMethod="method's Name")
+8. CustomerBeanPostProcessor.BeanPostProcessor::postProcessAfterInitialization
+9. Bean is ready
+//bean destroy
+10. @PreDestroy
+11. DisposableBean::destroy
+12. customDestroy-@Bean(destroyMethod="method's Name
+")
+
+// 4 and 8 are called every object created before bean cuz it works like aop
+// Note : U can read in BeanFactory

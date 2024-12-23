@@ -1,0 +1,103 @@
+first create java maven not spring
+in main pom.xml under version tag, add <packing>pom<packing>
+and add <dependenceManagement>,inside <dependencies>, inside <dependence>
+and inside <type>pom<type> and <scope>import<scope>
+dependence is spring-boot-dependencies
+
+and delete the src dir
+and add the modules to the project with eureka client discovery
+
+//same configuration of pom parent and child.
+it has parent pom and child pom
+in parent pom add <modules> and inside add <module>child project name<module>
+
+and child pom
+inside the parent tag, change to parent pom modules(parent dependence) and delete relative path tag
+copy child spring cloud dependence from dependenceManagement and to paste in parent dep
+delete the child dependenceManagement
+
+in parent pom
+change the version look from child pom
+
+in child project, in resource delete the application.properties
+and add application.yml
+note : this yml logo be spring logo or not work
+
+in yml add
+    spring:
+      application:
+        name: project name
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8083/eureka
+server:
+  port: 0
+
+if finish write finish the eureka client, it must also have eureka server
+
+// add the eureka server
+1. add the module
+2. add eureka server dependence
+3. in main, add the @EnableEurekaServer
+4. same as configuration of eureka client(child pom)
+5. delete application.properties and add application.yml
+6. in yml
+spring:
+  application:
+    name: eureka-server
+# that meant fetch-registry and register with eureka is false that will not be client
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8083/eureka
+server:
+  port: 8083
+
+if finished, it must also need to add gateway.
+gateway is also eureka client and gateway
+
+// add the gateway
+1. add the module
+2. add eureka client and gateway dependence
+3. same as configuration of eureka server 4 to 5
+4. in yml
+spring:
+  application:
+    name: gateway-demo
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: CounterService
+            uri: lb://COUNTER-SERVICE
+            predicates:
+              - Path=/counter/**
+#  id is just name and uri is where modules will use and lb is loading balance
+#  and COUNTER-SERVICE is spring:
+#  application:
+#    name: counter-service
+server:
+  port: 8080
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8083/eureka
+
+and click Edit Configuration in runner
+// change client server port and modify and vm -Dserver-port:8089
+// add compound in left side of + button
+
+inside the compound add all the spring boot runn
+
+//run this code
+curl -b cookies.txt -c cookies.txt -X POST http://localhost:8080/counter/stateful/countUp
+curl -H "Content-Type: application/json" -d '{"counter":6}' -X POST http://localhost:8080/counter/stateless/countUp
+
+if success it works, if not it does not work
+
+1s in 50 person can be load by exceed in the work load
+
+be careful when you use microservice,do not use stateful

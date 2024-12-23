@@ -1,0 +1,9 @@
+//Dependency Injection (Autowired)
+// 1. depend.xml(explicit Injection)
+// 2. depend.xml(implicit Injection)
+// 3. @Configure (explicit Injection)
+// 4. @Configure (implicit Injection)
+// 5. @ComponentScan(Injection)
+//
+// 2 Autowired with other arguments
+// can be solved @Nullable, @Autowired(required = false), Optional<Object>

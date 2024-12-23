@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: api-ui-demo
+server:
+  port: 8090

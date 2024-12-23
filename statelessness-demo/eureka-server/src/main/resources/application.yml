@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eureka-server
+# that meant fetch-registry and register with eureka is false that will not be client
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8083/eureka
+server:
+  port: 8083

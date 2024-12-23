@@ -1,0 +1,10 @@
+// Aop
+add @Aspect and @Component
+add @EnableAspectJAutoProxy in Config like AppConfig
+
+@EnableAspectJAutoProxy is in @ComponentScan
+
+in line 2 need to pointcut like @Around("@annotation(org.example...))"
+@Around is used for check all that have inside Argument @Annotation
+
+

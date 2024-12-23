@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<body>
+    <main role="main">
+<!--        DashBoard-->
+        <section class="py-3 bg-dark text-white">
+            <div class="row">
+                <div class="offset-1 col-md-6">
+                    <h4><i class="fas fa-clog me-2"></i>Post</h4>
+                </div>
+            </div>
+        </section>
+<!--    Search Bar-->
+        <section class="bg-light py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-6 col-md-6">
+                        <div class="input-group shadow">
+                            <input type="text" class="form-control" placeholder="Search something"/>
+                            <a href="" class="btn btn-dark">Search</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- Table-->
+        <section class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <h3 class="card-header">Post Table</h3>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Body</th>
+                                        <th>Date Post</th>
+                                        <th>Category</th>
+                                        <th>User</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="post : ${posts}">
+                                        <td th:text="${post.id}"></td>
+                                        <td th:text="${post.title}"></td>
+<!--                                        substring is to show minimum size for the text length -->
+                                        <td th:text="${#strings.substring(post.body, 0, 8)}"></td>
+                                        <td th:text="${post.datePosted}"></td>
+                                        <td th:text="${post.category.title}"></td>
+                                        <td th:text="${post.user.username}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

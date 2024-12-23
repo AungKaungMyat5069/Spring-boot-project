@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="session" class="container">
+    <div class="col">
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Session Scope</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-title"> Value :: <span th:text="${sessionScopeBean}"></span></p>
+                    <form th:action="@{/save-session-value}" method="post">
+                        <label class="form-label " for="sessionValue">Request Value</label>
+                        <input class="form-control" type="text" name="sessionValue" id="sessionValue">
+                        <input type="submit" class="btn btn-outline-info mt-2" value="Save Session Value"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

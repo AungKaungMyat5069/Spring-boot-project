@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <main role="main">
+<!--        Dashboard-->
+        <div class="py-3 bg-info text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>
+                            <i class="fas fa-cog ms-2"></i>
+                            Category
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        Search-->
+        <section class="bg-light py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-6 col-md-6">
+                        <div class="input-group shadow">
+                            <input type="text" class="form-control" placeholder="Search something"/>
+                            <a href="" class="btn btn-info">Search</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Category</h4>
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Date Posted</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="category : ${categories}">
+                                    <td th:text="${category.id}"></td>
+                                    <td th:text="${category.title}"></td>
+                                    <td th:text="${category.datePost}"></td>
+                                    <td>
+                                        <a data-bs-target="#categoryModel"
+                                           data-bs-toggle="modal"
+                                           th:href="@{'/update-category?id=' + ${category.id}}" class="btn btn-outline-info">Update</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+<!--                        Update Category model -->
+                        <div class="modal fade" id="categoryModel" tabindex="-1" aria-labelledby="categoryModelLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form class="modal-content" method="post">
+                                    <div class="modal-header bg-info text-dark">
+                                        <h1 class="modal-title fs-5" id="categoryModelLabel">Category </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div th:object="${category}" class="modal-body">
+                                        <div class="mb-3">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" class="form-control"  />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Date Post</label>
+                                            <input type="date" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Update Category</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

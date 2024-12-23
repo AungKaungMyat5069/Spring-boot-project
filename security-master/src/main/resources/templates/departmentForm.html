@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <main role="main" class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <h4 class="card-header">Deparment</h4>
+                    <div class="card-body">
+                        <form th:action="@{/save-department}" method="post" th:object="${department}">
+
+                            <div class="mb-3">
+                                <label class="form-label">Code</label>
+                                <input type="text" class="form-control" th:field="*{code}" th:classappend="${#fields.hasErrors('code')} ? 'is-invalid'">
+                                <small th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="invalid-feedback"></small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Country</label>
+                                <input type="text" class="form-control" th:field="*{country}" th:classappend="${#fields.hasErrors('country')} ? 'is-invalid'">
+                                <small th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="invalid-feedback"></small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" th:field="*{name}" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'">
+                                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback"></small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Create Department
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+// Autowired(dependence injection)
+// autowired is cannot only interface
+// cuz it can be NoUniqueBeanException
+
+// solution
+// @Primary - just to add to class(@Component)
+// @Qualifier("value name that is @Component arguments") - also add to beside the @Autowired
+// @Qualifier Custom - that is custom Qualifier
+
+// Custom Qualifier
+// 1. create annotation interface and add @Retention(Runtime) and @Target(method, field, parameter, type)
+// 2. in that annotation add @Qualifier
+// 3. in that annotation create enum { like PRINCESS,..}
+// 4. create method value() return class type
+// 5. add all that is Relevant class with "import static"
+// 6. after following are same as @Qualifier
+
+//But in AutoWired
+without above solution it can work but change the variable name
+// so Autowired narrow down to search byName
+
+//ComponentScan
+// this is look for stereotype
+What are stereotype?
+1. @component,
+2. @Service,
+3. @Repository,
+4. @Controller
+// Advice - if u want to know, just type google

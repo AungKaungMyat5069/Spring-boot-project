@@ -1,0 +1,22 @@
+//Scope
+Scope have Singleton, Prototype
+Spring bean's scope are default in Singleton
+
+//behavior
+behavior have two type, edger and lazy
+spring bean behavior is default edger
+//edger - edger mean it will created object even not calling it
+// lazy - lazy mean it will not created object util call it
+Singleton is Edger and Prototype is Lazy
+Singleton can change lazy
+
+//Changing
+//@ComponentScan(lazyInit = true(default 'false')) - All bean will be lazy
+//But Only ONe single be like
+//@Component @Lazy(true)
+
+Prototype can not be change Edger unless that have Autowired
+
+@Lazy can be used in @Component @Configuration @Bean
+
+@Bean will good for dependence like prettyTime

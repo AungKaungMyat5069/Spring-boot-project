@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <main role="main" class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <h3 class="card-title">Customer</h3>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="cus : ${customers}">
+                                    <td th:text="${cus.id}"></td>
+                                    <td th:text="${cus.firstName}"></td>
+                                    <td th:text="${cus.lastName}"></td>
+                                    <td th:text="${cus.email}"></td>
+                                    <td th:text="${cus.phoneNumber}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

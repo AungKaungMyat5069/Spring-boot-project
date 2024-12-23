@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <main role="main">
+<!--        header section-->
+        <section th:replace="~{fragment/headSector :: header}"></section>
+<!--        cart Item icon-->
+    <section th:replace="~{fragment/headSector :: cartItem}"></section>
+<!--  Book Manga show sale       -->
+        <section class="container p-5 bg-dark mt-4 text-white">
+
+            <article class="row">
+                
+                <aside class="col-md-4 shadow" th:each="book :${books}">
+
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img class="card-img-top" width="480" height="360" th:src="${book.imgUrl}" th:alt="${book.title}">
+
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${book.title}"></h5>
+                            <p class="card-text" th:text="${book.getAuthor().firstName + ' ' + book.getAuthor().lastName}"></p>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <p class="card-text" th:text="${book.price}"></p>
+                                <a th:href="@{'/book?id=' + ${book.id}}"> <i>Detail</i></a>
+                                <p class="card-text" th:text="${book.genre}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

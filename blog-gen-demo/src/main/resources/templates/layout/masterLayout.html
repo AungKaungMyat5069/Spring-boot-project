@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html th:fragment="layout(main)" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Gen</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+    th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script src="../../static/bootstrap/js/bootstrap.min.js"
+    th:src="@{/bootstrap/js/bootstrap.min.js}"
+    ></script>
+    <script src="https://kit.fontawesome.com/2a3cd09595.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header th:replace="~{fragment/navbar :: navbar}"></header>
+    <main th:replace="${main}"></main>
+</body>
+</html>

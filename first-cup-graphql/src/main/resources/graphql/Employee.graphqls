@@ -1,0 +1,14 @@
+type Employees {
+    id: ID
+    firstName: String
+    lastName: String
+    salary: Float
+    job: String
+}
+#above is function method
+
+#below is call method
+type Query{
+    findAllEmployees:[Employees]
+    findEmployeeById(id:ID): Employees
+}

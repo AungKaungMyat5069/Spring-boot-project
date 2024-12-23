@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        const http = new XMLHttpRequest(); // this is ajax
+        const url = 'http://127.0.0.1:8080/hello';
+        http.open("POST", url);
+        http.send();
+
+        http.onreadystatechange = (event) => {
+            document
+                .getElementById("output")
+                .innerHTML = http.responseText
+        }
+
+    </script>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+</html>
