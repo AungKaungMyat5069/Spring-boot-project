@@ -63,6 +63,7 @@
 60. bookstore-backend
 61. employee-crud-backend
 62. recipes-backend
+63. spring-api-exception
 
 in Angular (JDC/angular-again)
 1. my-test
@@ -71,6 +72,7 @@ in Angular (JDC/angular-again)
 4. ng-bookstore
 5. employee-ng
 6. recipes-app
+7. shopping-cart
 
 in React (JDC/react-again)
 1. my-app
