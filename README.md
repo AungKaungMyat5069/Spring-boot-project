@@ -81,11 +81,19 @@ in React (JDC/react-again)
 2. react-basic
 3. yum-eat
 4. emp-react
+5. todo-ui
+6. context-api
+
 //Note. finished the reactive demo go to https://github.com/schananas/practical-reactor
 https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif
+
 
 when you finish learning go to swagger.io and learn
 E]*1D.$MS9Jp1A+F proton account
 
 Aug 26 900 to download for React Native
 Aung 27 1:00 to download for React native
+
+in Next (JDC/nextJs)
+1. my-app
+2. bookstore-ui
