@@ -30,7 +30,7 @@ public class TodoController {
                 .getId(id), HttpStatus.OK);
     }
 
-    @GetMapping()
+    @GetMapping("/all")
     public ResponseEntity<List<TodoDto>> getAllTodos() {
         return new ResponseEntity<>(todoService.findAllTodo(), HttpStatus.OK);
     }

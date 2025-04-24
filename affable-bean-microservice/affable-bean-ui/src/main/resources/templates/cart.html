@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/masterLayout :: layout(~{::main})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <main role="main">
+        <form th:action="@{/ui/affableBean/checkout}" th:object="${cartItem}" method="post">
+<!--            Cart Shown-->
+            <p>Your cart contain <span th:text="${CartItemCount}"></span> items </p>
+
+        <!--    Function-->
+            <section class="d-flex justify-content-around mb-3">
+                <a th:href="@{/ui/affableBean/cartItem-clear}" class="px-3 py-1 rounded text-white bg-dark" style="text-decoration: none">Clear Cart</a>
+                <a th:href="@{/ui/affableBean/}" class="px-3 py-1 rounded text-white bg-dark" style="text-decoration: none">Continue Shopping</a>
+                <input type="submit" th:if="${!renderer}" class="px-3 py-1 rounded text-white bg-dark" style="text-decoration: none" value="CheckOut"/>
+                <a th:href="@{/ui/affableBean/checkout-view}" th:if="${renderer}" class="px-3 py-1 rounded text-white bg-primary" style="text-decoration: none" >CheckOut</a>
+            </section>
+
+<!--            TotalPrice-->
+            <h3 class="text-center my-3">Total Price : $ <span th:text="${#numbers.formatDecimal(TotalPrice
+            , 0, 'COMMA', 2 , 'POINT')}"></span></h3>
+
+    <!--        Table Cart Item-->
+            <table class="table table-striped-columns" th:if="${!cartItems.isEmpty()}">
+                <thead>
+                    <tr>
+                        <th class="h4">Image</th>
+                        <th class="h4">Name</th>
+                        <th class="h4">Price</th>
+                        <th class="h4">Quantity</th>
+                        <th class="h4">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cartItem : ${cartItems}">
+                        <td>
+                            <img th:src="@{'/images/products/' + ${cartItem.name} + '.png'}" alt="">
+                        </td>
+                        <td th:text="${cartItem.name}" class="bg-dark-subtle"></td>
+                        <td th:text="${cartItem.price}"></td>
+                        <td class="bg-dark-subtle">
+                            <input type="number" th:field="*{quantityList}" th:if="${!cartItem.render}" class="form-control"/>
+                            <p th:if="${cartItem.render}" th:text="${cartItem.quantity}"></p>
+                        </td>
+                        <td>
+                            <a th:href="@{ui/affableBean/cartItem-delete}" class="btn btn-outline-danger">
+                                Delete
+                            </a>
+                        </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+
+<!--        No Show Content -->
+        <section class="m-5" th:if="${cartItems.isEmpty()}">
+            <h1 class="text-center bg-dark text-white py-3 px-2 rounded">No Content</h1>
+        </section>
+    </main>
+</body>
+</html>

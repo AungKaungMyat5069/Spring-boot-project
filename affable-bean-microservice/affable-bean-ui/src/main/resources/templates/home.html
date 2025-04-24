@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/masterLayout :: layout(~{::main})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main role="main">
+        <div class="container mt-3">
+<!--            hero view-->
+            <div class="row">
+<!--                explain side -->
+                <div class="col">
+                    <h3>Welcome to the online home of the Affable Bean Green Grocer.</h3>
+                    <br>
+                    <p class="lead">Enjoy browsing and learning more about our
+                        unique home delivery service bringing you fresh
+                        organic produce,dairy,meats,breads and other
+                        delicious and healthy items to you doorstep.</p>
+                </div>
+
+<!--                Category Side-->
+                <div class="col">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a th:href="@{/ui/affableBean/view-products/category/3}">
+                                <img src="../static/images/categories/bakery.jpg" alt="bakery"
+                                th:src="@{/images/categories/bakery.jpg}" class="img-fluid shadow rounded">
+                            </a>
+                        </div>
+
+                        <div class="col">
+                            <a th:href="@{/ui/affableBean/view-products/category/1}">
+                                <img src="../static/images/categories/dairy.jpg" alt="dairy"
+                                     th:src="@{/images/categories/dairy.jpg}" class="img-fluid shadow rounded">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a th:href="@{/ui/affableBean/view-products/category/4}">
+                                <img src="../static/images/categories/fruitveg.jpg" alt="fruit veg"
+                                 th:src="@{/images/categories/fruitveg.jpg}" class="img-fluid shadow rounded">
+                            </a>
+                        </div>
+
+                        <div class="col">
+                            <a th:href="@{/ui/affableBean/view-products/category/2}">
+                                <img src="../static/images/categories/meats.jpg" alt="meats"
+                                 th:src="@{/images/categories/meats.jpg}" class="img-fluid shadow rounded">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

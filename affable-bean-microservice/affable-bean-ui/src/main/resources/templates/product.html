@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/masterLayout :: layout(~{::main})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main role="main">
+        <div class="row">
+            <div class="col-md-3 d-flex flex-column">
+                <a th:href="@{/ui/affableBean/view-products/category/3}" style="text-decoration: none" class="bg-success px-5 py-3 rounded text-white mb-2">Bakery</a>
+                <a th:href="@{/ui/affableBean/view-products/category/1}" style="text-decoration: none" class="bg-success px-5 py-3 rounded text-white mb-2">Dairy</a>
+                <a th:href="@{/ui/affableBean/view-products/category/4}" style="text-decoration: none" class="bg-success px-5 py-3 rounded text-white mb-2">Fruit &#38; Vegetable</a>
+                <a th:href="@{/ui/affableBean/view-products/category/2}" style="text-decoration: none" class="bg-success px-5 py-3 rounded text-white mb-2">Meats</a>
+            </div>
+            <div class="col-md-9">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="product : ${productsByCategoryId}">
+                            <td>
+                                <img th:src="@{'/images/products/' + ${product.name} + '.png'}" th:alt="${product.name}">
+                            </td>
+                            <td th:text="${product.name}"></td>
+                            <td th:text="${product.price}"></td>
+                            <td>
+                                <a th:href="@{'/ui/affableBean/cartItem/' + ${product.id}}" class="btn btn-primary">
+                                    Purchase
+                                </a>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

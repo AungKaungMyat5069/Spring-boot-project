@@ -65,9 +65,10 @@
 62. recipes-backend
 63. spring-api-exception
 64. todo-backend
+65. affablebean-microservice
 
 
-in Angular (JDC/angular-again)
+in Angular (JDC/angular)
 1. my-test
 2. angular-data-binding
 3. ng-life-cycle-hook
@@ -75,8 +76,9 @@ in Angular (JDC/angular-again)
 5. employee-ng
 6. recipes-app
 7. shopping-cart
+8. todo-ng
 
-in React (JDC/react-again)
+in React (JDC/react)
 1. my-app
 2. react-basic
 3. yum-eat

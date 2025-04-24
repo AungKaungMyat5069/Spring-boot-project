@@ -76,7 +76,7 @@ public class SecurityConfig {
                 c -> {
                     CorsConfigurationSource source = request -> {
                         CorsConfiguration configuration = new CorsConfiguration();
-                        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // more safe then that CrossOrigin
+                        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:4200")); // more safe then that CrossOrigin
                         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
                         configuration.setAllowedHeaders(List.of("*"));
                         configuration.setAllowCredentials(true);

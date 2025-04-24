@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: affable-bean-ui
+  thymeleaf:
+    cache: false
+server:
+  port: 0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8083/eureka
