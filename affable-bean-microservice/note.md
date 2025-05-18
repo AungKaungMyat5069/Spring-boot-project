@@ -62,7 +62,8 @@
 - and add eureka.client.service-url.defaultZone:localhost:8083/eureka
 
 # run with eureka 
-- first, run button of left side 
+- first change all RestClient catch is 8080 not other numbers
+- run(program) button of left side 
 - ender the edit configuration
 - Go to the backend and add 1 to the name
 - Click the "Modify Option" button, click "VM Option"
@@ -80,3 +81,4 @@
 ### run all modules
 - in edit configuration, add compound 
 - in compound add all which modules is needed to run
+- finish

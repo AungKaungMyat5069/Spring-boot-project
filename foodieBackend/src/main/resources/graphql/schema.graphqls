@@ -1,0 +1,28 @@
+scalar LocalTime
+
+
+type DishDto {
+    id: ID
+    title: String
+    slogan: String
+    price: Float
+    image: String
+}
+
+type RestaurantDto {
+    id: ID
+    title: String
+    email: String
+    address: String
+    phone: String
+    startTime: LocalTime
+    endTime: LocalTime
+}
+
+type Query {
+    allDishes: [DishDto]
+    getDishesByRestaurantId(restaurantId: ID!): [DishDto]
+#    this name must be same as the controller method
+#    arguments are also must be same as the controller arguments
+    getAllRestaurants: [RestaurantDto]
+}

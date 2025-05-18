@@ -65,7 +65,8 @@
 62. recipes-backend
 63. spring-api-exception
 64. todo-backend
-65. affablebean-microservice
+65. affable-bean-microservice
+66. foodieBackend
 
 
 in Angular (JDC/angular)
@@ -85,6 +86,7 @@ in React (JDC/react)
 4. emp-react
 5. todo-ui
 6. context-api
+7. state-demo-app
 
 //Note. finished the reactive demo go to https://github.com/schananas/practical-reactor
 https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif
@@ -99,3 +101,4 @@ Aung 27 1:00 to download for React native
 in Next (JDC/nextJs)
 1. my-app
 2. bookstore-ui
+3. foodie
